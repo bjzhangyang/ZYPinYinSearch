@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="lHc-Sb-8Yh">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--类型选择-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ts4-Rn-n2B">
+                                <rect key="frame" x="18" y="226" width="285" height="30"/>
+                                <state key="normal" title="数组中保存字典，按照字典中某个字段查询">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xD6-p5-te8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCR-Nd-Hit">
+                                <rect key="frame" x="19" y="306" width="283" height="30"/>
+                                <state key="normal" title="数组中保存Model对象，按照某个字段查询">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5He-LL-gy7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7Z-zi-n2Z">
+                                <rect key="frame" x="100" y="146" width="120" height="30"/>
+                                <state key="normal" title="数组中保存字符串">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="czK-YM-4Ni"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="P7Z-zi-n2Z" secondAttribute="centerX" id="A6J-UA-Vz7"/>
+                            <constraint firstItem="P7Z-zi-n2Z" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="82" id="MOg-Kd-JI2"/>
+                            <constraint firstItem="ts4-Rn-n2B" firstAttribute="top" secondItem="P7Z-zi-n2Z" secondAttribute="bottom" constant="50" id="WsH-9t-Tas"/>
+                            <constraint firstItem="bCR-Nd-Hit" firstAttribute="top" secondItem="ts4-Rn-n2B" secondAttribute="bottom" constant="50" id="al7-21-Etg"/>
+                            <constraint firstAttribute="centerX" secondItem="bCR-Nd-Hit" secondAttribute="centerX" id="eHV-sT-aJx"/>
+                            <constraint firstAttribute="centerX" secondItem="ts4-Rn-n2B" secondAttribute="centerX" id="hVv-LW-f70"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="类型选择" id="ox6-Rg-R9X"/>
+                    <connections>
+                        <segue destination="ZAB-XA-Aun" kind="push" identifier="push" id="CtC-Zz-IrI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="231" y="392"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="u2k-bA-bIb">
+            <objects>
+                <viewController storyboardIdentifier="search" id="ZAB-XA-Aun" customClass="ZYSearchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="crA-ak-VSz"/>
+                        <viewControllerLayoutGuide type="bottom" id="WqH-EM-Mk3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tiU-HN-gW0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8n3-oG-RYx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HIL-ua-3a4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="614" y="392"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gIB-Iw-8Eg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lHc-Sb-8Yh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P4F-VO-b6O">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="LfH-hl-J9E"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fuq-sX-NYi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-153" y="392"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

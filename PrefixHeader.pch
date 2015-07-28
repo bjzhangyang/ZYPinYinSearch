@@ -1,0 +1,17 @@
+//
+//  PrefixHeader.pch
+//  ZYPinYinSearch
+//
+//  Created by soufun on 15/7/27.
+//  Copyright (c) 2015年 ZY. All rights reserved.
+//
+#import <Foundation/Foundation.h>
+#define kWidth  [UIScreen mainScreen].bounds.size.width
+#define kHight  [UIScreen mainScreen].bounds.size.height
+#ifndef ZYPinYinSearch_PrefixHeader_pch
+#define ZYPinYinSearch_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif
