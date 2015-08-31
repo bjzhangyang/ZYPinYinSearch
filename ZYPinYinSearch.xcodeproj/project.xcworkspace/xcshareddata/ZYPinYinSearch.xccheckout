@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1A8BECF1-875F-4B3B-9F01-71209E50540C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ZYPinYinSearch</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2E026F72F9604621FB8A87573F4C9D4B147E0F25</key>
+		<string>https://github.com/bjzhangyang/ZYPinYinSearch.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ZYPinYinSearch.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2E026F72F9604621FB8A87573F4C9D4B147E0F25</key>
+		<string>../..ZYPinYinSearch/</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/bjzhangyang/ZYPinYinSearch.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2E026F72F9604621FB8A87573F4C9D4B147E0F25</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2E026F72F9604621FB8A87573F4C9D4B147E0F25</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ZYPinYinSearch</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2E026F72F9604621FB8A87573F4C9D4B147E0F25</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ZYPinYinSearch</string>
+		</dict>
+	</array>
+</dict>
+</plist>
