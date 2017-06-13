@@ -25,6 +25,7 @@
 		5AE26FF41B662C83008C06ED /* PinyinHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE26FEA1B662C83008C06ED /* PinyinHelper.m */; };
 		5AE26FF51B662C83008C06ED /* unicode_to_hanyu_pinyin.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5AE26FEB1B662C83008C06ED /* unicode_to_hanyu_pinyin.txt */; };
 		5AE26FF61B662C83008C06ED /* ZYPinYinSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE26FED1B662C83008C06ED /* ZYPinYinSearch.m */; };
+		85F6BAAB1EEFAB2700C53B9F /* ZYSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F6BAAA1EEFAB2700C53B9F /* ZYSearchModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		5AE26FEB1B662C83008C06ED /* unicode_to_hanyu_pinyin.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unicode_to_hanyu_pinyin.txt; sourceTree = "<group>"; };
 		5AE26FEC1B662C83008C06ED /* ZYPinYinSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYPinYinSearch.h; sourceTree = "<group>"; };
 		5AE26FED1B662C83008C06ED /* ZYPinYinSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYPinYinSearch.m; sourceTree = "<group>"; };
+		85F6BAA71EEF91FC00C53B9F /* ZYSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSearchModel.h; sourceTree = "<group>"; };
+		85F6BAAA1EEFAB2700C53B9F /* ZYSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSearchModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +179,8 @@
 				5AE26FE91B662C83008C06ED /* PinyinHelper.h */,
 				5AE26FEA1B662C83008C06ED /* PinyinHelper.m */,
 				5AE26FEB1B662C83008C06ED /* unicode_to_hanyu_pinyin.txt */,
+				85F6BAA71EEF91FC00C53B9F /* ZYSearchModel.h */,
+				85F6BAAA1EEFAB2700C53B9F /* ZYSearchModel.m */,
 				5AE26FEC1B662C83008C06ED /* ZYPinYinSearch.h */,
 				5AE26FED1B662C83008C06ED /* ZYPinYinSearch.m */,
 			);
@@ -231,6 +236,7 @@
 				TargetAttributes = {
 					5AE26F8A1B65C6AE008C06ED = {
 						CreatedOnToolsVersion = 6.4;
+						ProvisioningStyle = Manual;
 					};
 					5AE26FA31B65C6AE008C06ED = {
 						CreatedOnToolsVersion = 6.4;
@@ -288,6 +294,7 @@
 				5AE26F971B65C6AE008C06ED /* ViewController.m in Sources */,
 				5AE26FF61B662C83008C06ED /* ZYPinYinSearch.m in Sources */,
 				5AE26FF01B662C83008C06ED /* HanyuPinyinOutputFormat.m in Sources */,
+				85F6BAAB1EEFAB2700C53B9F /* ZYSearchModel.m in Sources */,
 				5AE26FF11B662C83008C06ED /* NSString+PinYin4Cocoa.m in Sources */,
 				5AE26F941B65C6AE008C06ED /* AppDelegate.m in Sources */,
 				5AE26FF21B662C83008C06ED /* PinyinFormatter.m in Sources */,
@@ -423,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = ZYPinYinSearch/PrefixHeader.pch;
 				INFOPLIST_FILE = ZYPinYinSearch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -436,6 +444,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = ZYPinYinSearch/PrefixHeader.pch;
 				INFOPLIST_FILE = ZYPinYinSearch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -498,6 +507,7 @@
 				5AE26FB01B65C6AF008C06ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5AE26FB11B65C6AF008C06ED /* Build configuration list for PBXNativeTarget "ZYPinYinSearchTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +516,7 @@
 				5AE26FB31B65C6AF008C06ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
