@@ -140,12 +140,18 @@
 {
     if ([searchBar.text isEqualToString:@""]) {
         _dataSourceArray = _originalArray;
+        
     }
     else{
 #warning 主要功能，调用方法实现搜索
-        _dataSourceArray = [ZYPinYinSearch searchWithOriginalArray:_originalArray andSearchText:searchBar.text andSearchByPropertyName:@"name"];
+        [ZYPinYinSearch searchByPropertyName:@"name" withOriginalArray:_originalArray searchText:searchBar.text success:^(NSArray *results) {
+            _dataSourceArray = results;
+            [_tableView reloadData];
+        } failure:^(NSString *errorMessage) {
+            
+        }];
     }
-    [_tableView reloadData];
+    
     self.navigationItem.rightBarButtonItem = _searchButton;
     [_searchBar resignFirstResponder];
     [_searchBar removeFromSuperview];
@@ -153,12 +159,18 @@
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if ([searchText isEqualToString:@""]) {
         _dataSourceArray = _originalArray;
+        [_tableView reloadData];
     }
     else{
 #warning 主要功能，调用方法实现搜索
-        _dataSourceArray = [ZYPinYinSearch searchWithOriginalArray:_originalArray andSearchText:searchText andSearchByPropertyName:@"name"];
+        [ZYPinYinSearch searchByPropertyName:@"name" withOriginalArray:_originalArray searchText:searchBar.text success:^(NSArray *results) {
+            _dataSourceArray = results;
+            [_tableView reloadData];
+        } failure:^(NSString *errorMessage) {
+            
+        }];
     }
-    [_tableView reloadData];
+    
 }
 -(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
@@ -203,6 +215,8 @@
         [cancelButton addSubview:lable];
         
     }
+    UIButton * button;
+    [button setTintColor:  nil];
     
 }
 

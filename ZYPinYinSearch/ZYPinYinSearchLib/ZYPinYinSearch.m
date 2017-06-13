@@ -10,116 +10,46 @@
 #import "ChineseInclude.h"
 #import "PinYinForObjc.h"
 #import "objc/runtime.h"
-#import <UIKit/UIKit.h>
+
 @implementation ZYPinYinSearch
+
 +(NSArray *)searchWithOriginalArray:(NSArray *)originalArray andSearchText:(NSString *)searchText andSearchByPropertyName:(NSString *)propertyName{
-    NSMutableArray * dataSourceArray = [[NSMutableArray alloc]init];
-    NSString * type;
-    if(originalArray.count <= 0){
-        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"数据源不能为空" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alert show];
+    ZYSearchModel * searchModel = [ZYSearchModel new];
+    searchModel.originalArray = originalArray;
+    searchModel.searchText = searchText;
+    searchModel.propertyName = propertyName;
+    
+    //如果数据合法，返回"string" 或者 "model" 或者 "dict"，不合法则返回错误信息
+    NSString * type = [searchModel chekIsLegal];
+    if (![@[@"string",@"model",@"dict"]containsObject:type]) {
+        NSLog(@"%@",type);
         return originalArray;
     }
-    else{
-        id object = originalArray[0];
-        if ([object isKindOfClass:[NSString class]]) {
-            type = @"string";
-        }
-        else if([object isKindOfClass:[NSDictionary class]]){
-            type = @"dict";
-            NSDictionary * dict = originalArray[0];
-            NSLog(@"字典keys：%@",[dict allKeys]);
-            BOOL isExit = NO;
-            for (NSString * key in dict.allKeys) {
-                if([key isEqualToString:propertyName]){
-                    isExit = YES;
-                    break;
-                }
-            }
-            if (!isExit) {
-                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"数据源中的字典没有你指定的key:%@",propertyName] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-                [alert show];
-                return originalArray;
-            }
-        }
-        else{
-            type = @"model";
-            NSMutableArray *props = [NSMutableArray array];
-            unsigned int outCount, i;
-            objc_property_t *properties = class_copyPropertyList([object class], &outCount);
-            for (i = 0; i<outCount; i++)
-            {
-                objc_property_t property = properties[i];
-                const char* char_f = property_getName(property);
-                NSString *propertyName = [NSString stringWithUTF8String:char_f];
-                [props addObject:propertyName];
-            }
-            NSLog(@"Model属性列表：%@",props);
-            free(properties);
-            BOOL isExit = NO;
-            for (NSString * property in props) {
-                if([property isEqualToString:propertyName]){
-                    isExit = YES;
-                    break;
-                }
-            }
-            if (!isExit) {
-                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"数据源中的Model没有你指定的属性:%@",propertyName] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-                [alert show];
-                return originalArray;
-            }
-
-        }
-    }
-    if (searchText.length>0&&![ChineseInclude isIncludeChineseInString:searchText]) {
-        for (int i=0; i<originalArray.count; i++) {
-            NSString * tempString;
-            if ([type isEqualToString:@"string"]) {
-                tempString = originalArray[i];
-            }
-            else{
-                tempString = [originalArray[i]valueForKey:propertyName];
-            }
-            if ([ChineseInclude isIncludeChineseInString:tempString]) {
-                NSString *tempPinYinStr = [PinYinForObjc chineseConvertToPinYin:tempString];
-                NSLog(@"%@",tempPinYinStr);
-                NSRange titleResult=[tempPinYinStr rangeOfString:searchText options:NSCaseInsensitiveSearch];
-                if (titleResult.length>0) {
-                    [dataSourceArray addObject:originalArray[i]];
-                    continue;
-                }
-                NSString *tempPinYinHeadStr = [PinYinForObjc chineseConvertToPinYinHead:tempString];
-                NSLog(@"%@",tempPinYinHeadStr);
-                NSRange titleHeadResult=[tempPinYinHeadStr rangeOfString:searchText options:NSCaseInsensitiveSearch];
-                if (titleHeadResult.length>0) {
-                    [dataSourceArray addObject:originalArray[i]];
-                    continue;
-                }
-            }
-            else {
-                NSRange titleResult=[tempString rangeOfString:searchText options:NSCaseInsensitiveSearch];
-                if (titleResult.length>0) {
-                    [dataSourceArray addObject:originalArray[i]];
-                    continue;
-                }
-            }
-        }
-    } else if (searchText.length>0&&[ChineseInclude isIncludeChineseInString:searchText]) {
-        for (id object in originalArray) {
-            NSString * tempString;
-            if ([type isEqualToString:@"string"]) {
-                tempString = object;
-            }
-            else{
-                tempString = [object valueForKey:propertyName];
-            }
-            NSRange titleResult=[tempString rangeOfString:searchText options:NSCaseInsensitiveSearch];
-            if (titleResult.length>0) {
-                [dataSourceArray addObject:object];
-            }
-        }
-    }
-    return dataSourceArray;
+    return [searchModel search];
 }
 
++(void)searchByPropertyName:(NSString *)propertyName withOriginalArray:(NSArray *)originalArray searchText:(NSString *)searchText success:(void (^)(NSArray *))success failure:(void (^)(NSString *))failure{
+    ZYSearchModel * searchModel = [ZYSearchModel new];
+    searchModel.originalArray = originalArray;
+    searchModel.searchText = searchText;
+    searchModel.propertyName = propertyName;
+    //如果数据合法，返回"string" 或者 "model" 或者 "dict"，不合法则返回错误信息
+    NSString * type = [searchModel chekIsLegal];
+    if (![@[@"string",@"model",@"dict"]containsObject:type]) {
+        NSLog(@"%@",type);
+        if (failure) {
+            failure(type);
+        }
+        return;
+    }
+    __block NSArray * results ;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        results = [searchModel search];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (success) {
+                success(results);
+            }
+        });
+    });
+}
 @end
