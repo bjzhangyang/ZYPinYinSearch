@@ -13,7 +13,6 @@
 		5AE26F9A1B65C6AE008C06ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE26F981B65C6AE008C06ED /* Main.storyboard */; };
 		5AE26F9C1B65C6AE008C06ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AE26F9B1B65C6AE008C06ED /* Images.xcassets */; };
 		5AE26F9F1B65C6AE008C06ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE26F9D1B65C6AE008C06ED /* LaunchScreen.xib */; };
-		5AE26FAB1B65C6AF008C06ED /* ZYPinYinSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE26FAA1B65C6AF008C06ED /* ZYPinYinSearchTests.m */; };
 		5AE26FD31B65F877008C06ED /* ZYSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE26FD21B65F877008C06ED /* ZYSearchViewController.m */; };
 		5AE26FD91B6605CA008C06ED /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE26FD81B6605CA008C06ED /* Person.m */; };
 		5AE26FEE1B662C83008C06ED /* ChineseInclude.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE26FDE1B662C83008C06ED /* ChineseInclude.m */; };
@@ -50,8 +49,6 @@
 		5AE26F9B1B65C6AE008C06ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5AE26F9E1B65C6AE008C06ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5AE26FA41B65C6AE008C06ED /* ZYPinYinSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZYPinYinSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5AE26FA91B65C6AF008C06ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5AE26FAA1B65C6AF008C06ED /* ZYPinYinSearchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYPinYinSearchTests.m; sourceTree = "<group>"; };
 		5AE26FCD1B65F41A008C06ED /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		5AE26FD11B65F877008C06ED /* ZYSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSearchViewController.h; sourceTree = "<group>"; };
 		5AE26FD21B65F877008C06ED /* ZYSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSearchViewController.m; sourceTree = "<group>"; };
@@ -100,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				5AE26F8D1B65C6AE008C06ED /* ZYPinYinSearch */,
-				5AE26FA71B65C6AE008C06ED /* ZYPinYinSearchTests */,
 				5AE26F8C1B65C6AE008C06ED /* Products */,
 			);
 			sourceTree = "<group>";
@@ -140,23 +136,6 @@
 				5AE26F8F1B65C6AE008C06ED /* Info.plist */,
 				5AE26F901B65C6AE008C06ED /* main.m */,
 				5AE26FCD1B65F41A008C06ED /* PrefixHeader.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5AE26FA71B65C6AE008C06ED /* ZYPinYinSearchTests */ = {
-			isa = PBXGroup;
-			children = (
-				5AE26FAA1B65C6AF008C06ED /* ZYPinYinSearchTests.m */,
-				5AE26FA81B65C6AF008C06ED /* Supporting Files */,
-			);
-			path = ZYPinYinSearchTests;
-			sourceTree = "<group>";
-		};
-		5AE26FA81B65C6AF008C06ED /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5AE26FA91B65C6AF008C06ED /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -310,7 +289,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AE26FAB1B65C6AF008C06ED /* ZYPinYinSearchTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
