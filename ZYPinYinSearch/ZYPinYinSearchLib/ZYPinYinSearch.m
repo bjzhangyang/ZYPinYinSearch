@@ -12,7 +12,12 @@
 #import "objc/runtime.h"
 
 @implementation ZYPinYinSearch
-
++(void)setupReplacement:(ZYReplacement)relacement{
+    [ZYSearchModel setupReplacement:relacement];
+}
++(void)removeReplacement{
+    [ZYSearchModel removeReplacement];
+}
 +(NSArray *)searchWithOriginalArray:(NSArray *)originalArray andSearchText:(NSString *)searchText andSearchByPropertyName:(NSString *)propertyName{
     ZYSearchModel * searchModel = [ZYSearchModel new];
     searchModel.originalArray = originalArray;

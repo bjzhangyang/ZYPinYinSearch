@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ZYSearchViewController.h"
+#import "ZYPinYinSearch.h"
 @interface ViewController ()
 
 @end
@@ -20,6 +21,10 @@
     [self.view addSubview:tempView];
     self.view.backgroundColor = [UIColor colorWithRed:26/255.0 green:61/255.0 blue:89/255.0 alpha:1];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    //处理多音字，指定词组的拼音，指定一次，整个APP运行过程中都有效，可以手动清除
+    [ZYPinYinSearch setupReplacement:^NSDictionary *{
+        return @{@"长春":@"changchun",@"重庆":@"chongqing"};
+    }];
     // Do any additional setup after loading the view, typically from a nib.
 }
 - (IBAction)buttonClicked:(UIButton *)sender {

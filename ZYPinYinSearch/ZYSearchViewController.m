@@ -21,6 +21,7 @@
 @implementation ZYSearchViewController
 
 - (void)viewDidLoad {
+    [ZYSearchModel test];
     [super viewDidLoad];
     [self initData];//根据上个页面传过来的type值，初始化模拟数据
     [self createUI];
@@ -28,7 +29,7 @@
 #pragma -mark 自定义方法
 -(void)initData{
     _originalArray = [NSMutableArray array];
-    NSArray * personNames = @[@"洋哥",@"王雨涵",@"李四",@"王五",@"赵六",@"孙七"];
+    NSArray * personNames = @[@"长春",@"重庆",@"李四",@"王五",@"赵六",@"孙七"];
     NSArray * nicknames = @[@"帅哥",@"王大妞",@"李傻子",@"王瘸子",@"赵瞎子",@"孙子"];
     if([self.type isEqualToString:@"字符串"]){
         for (int i = 0; i < personNames.count; i++) {

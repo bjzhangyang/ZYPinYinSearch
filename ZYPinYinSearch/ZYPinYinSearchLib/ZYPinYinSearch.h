@@ -10,6 +10,8 @@
 #import "ZYSearchModel.h"
 @interface ZYPinYinSearch : NSObject
 
+
+
 /**
  *  搜索数组，返回新的数组。目前支持NSString，NSDictionnary，自定义Model，后面两个可以指定按照哪个字段搜索
  *
@@ -25,5 +27,8 @@
  */
 +(void)searchByPropertyName:(NSString *)propertyName withOriginalArray:(NSArray *)originalArray searchText:(NSString *)searchText success:(void(^)(NSArray *results))success failure:(void(^)(NSString *errorMessage))failure;
 
-
+/** 设置多音字情况下特定词语的拼音 */
++(void)setupReplacement:(ZYReplacement)relacement;
+/** 清除自定义设置 */
++(void)removeReplacement;
 @end

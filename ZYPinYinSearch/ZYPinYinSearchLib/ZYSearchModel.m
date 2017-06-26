@@ -12,6 +12,7 @@
 #import "objc/runtime.h"
 #import "ChineseInclude.h"
 #import "PinYinForObjc.h"
+static const char ZYReplacementKey = '\0';
 @implementation ZYSearchModel
 -(NSString *)chekIsLegal{
     NSString * type;
@@ -26,7 +27,6 @@
         else if([object isKindOfClass:[NSDictionary class]]){
             type = @"dict";
             NSDictionary * dict = self.originalArray[0];
-            NSLog(@"字典keys：%@",[dict allKeys]);
             BOOL isExit = NO;
             for (NSString * key in dict.allKeys) {
                 if([key isEqualToString:self.propertyName]){
@@ -75,6 +75,14 @@
             else{
                 tempString = [_originalArray[i]valueForKey:_propertyName];
             }
+            NSDictionary * replacementDic = objc_getAssociatedObject([self class], &ZYReplacementKey);
+            if(replacementDic){
+                for (NSString * key in replacementDic.allKeys) {
+                    if ([tempString containsString:key]) {
+                        tempString = [tempString stringByReplacingOccurrencesOfString:key withString:[replacementDic objectForKey:key]];
+                    }
+                }
+            }
             if ([ChineseInclude isIncludeChineseInString:tempString]) {
                 NSString *tempPinYinStr = [PinYinForObjc chineseConvertToPinYin:tempString];
                 NSRange titleResult=[tempPinYinStr rangeOfString:_searchText options:NSCaseInsensitiveSearch];
@@ -112,6 +120,17 @@
             }
         }
     }
-    return [dataSourceArray copy];;
+    return [dataSourceArray copy];
+}
+
++(void)setupReplacement:(ZYReplacement)relacement{
+    if (relacement && [relacement() isKindOfClass:[NSDictionary class]]) {
+        objc_setAssociatedObject(self, &ZYReplacementKey, relacement(), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    } else {
+        
+    }
+}
++(void)removeReplacement{
+    objc_setAssociatedObject(self, &ZYReplacementKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 @end
