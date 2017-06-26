@@ -23,7 +23,7 @@
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
     //处理多音字，指定词组的拼音，指定一次，整个APP运行过程中都有效，可以手动清除
     [ZYPinYinSearch setupReplacement:^NSDictionary *{
-        return @{@"长春":@"changchun",@"重庆":@"chongqing"};
+        return @{@"长春":@"changchun",@"重庆":@"chongqing"};//长春默认是"zhangchun"，所以咱们这里可以特殊设置成"changchun"
     }];
     // Do any additional setup after loading the view, typically from a nib.
 }
