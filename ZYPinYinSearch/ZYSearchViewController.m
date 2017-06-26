@@ -21,7 +21,6 @@
 @implementation ZYSearchViewController
 
 - (void)viewDidLoad {
-    [ZYSearchModel test];
     [super viewDidLoad];
     [self initData];//根据上个页面传过来的type值，初始化模拟数据
     [self createUI];
