@@ -1,3 +1,4 @@
+![img](https://github.com/bjzhangyang/ZYPinYinSearch/blob/master/2017-06-27%2010_57_40.gif)
 ## ZYPinYinSearch是什么?
 一个筛选库，可以把数组里的内容按照拼音筛选出来。
 
