@@ -31,5 +31,6 @@ return @{@"长春":@"changchun",@"重庆":@"chongqing"};//长春默认是"zhangc
 }];
 ```
 ## 安装
-直接把ZYPinYinSearchLib拖入项目即可
+1、pod 'ZYPinYinSearch'
+2、或者直接把ZYPinYinSearchLib拖入项目即可
 

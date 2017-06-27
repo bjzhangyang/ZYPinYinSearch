@@ -127,7 +127,7 @@ static const char ZYReplacementKey = '\0';
     if (relacement && [relacement() isKindOfClass:[NSDictionary class]]) {
         objc_setAssociatedObject(self, &ZYReplacementKey, relacement(), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     } else {
-        
+        objc_setAssociatedObject(self, &ZYReplacementKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 }
 +(void)removeReplacement{
