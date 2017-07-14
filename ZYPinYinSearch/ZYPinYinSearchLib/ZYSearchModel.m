@@ -13,6 +13,7 @@
 #import "ChineseInclude.h"
 #import "PinYinForObjc.h"
 static const char ZYReplacementKey = '\0';
+static const char ZYCachedProperties = '\0';
 @implementation ZYSearchModel
 -(NSString *)chekIsLegal{
     NSString * type;
@@ -40,24 +41,28 @@ static const char ZYReplacementKey = '\0';
         }
         else{
             type = @"model";
-            unsigned int outCount, i;
-            BOOL isExit = NO;
-            objc_property_t *properties = class_copyPropertyList([object class], &outCount);
-            for (i = 0; i<outCount; i++)
-            {
-                objc_property_t property = properties[i];
-                const char* char_f = property_getName(property);
-                NSString *property_name = [NSString stringWithUTF8String:char_f];
-                if ([property_name isEqualToString:self.propertyName]) {
-                    isExit = YES;
-                    break;
+            NSMutableArray *cachedProperties = objc_getAssociatedObject([object class], &ZYCachedProperties);
+            if (!cachedProperties) {
+                cachedProperties = [NSMutableArray array];
+                Class c = [object class];
+                while (c && c != [NSObject class]) {
+                    unsigned int outCount, i;
+                    objc_property_t *properties = class_copyPropertyList(c, &outCount);
+                    for (i = 0; i<outCount; i++)
+                    {
+                        objc_property_t property = properties[i];
+                        const char* char_f = property_getName(property);
+                        NSString *property_name = [NSString stringWithUTF8String:char_f];
+                        [cachedProperties addObject:property_name];
+                    }
+                    free(properties);
+                    c = class_getSuperclass(c);
                 }
+                objc_setAssociatedObject([object class], &ZYCachedProperties, cachedProperties, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             }
-            free(properties);
-            if (!isExit) {
+            if(![cachedProperties containsObject:self.propertyName]){
                 return [NSString stringWithFormat:@"数据源中的Model没有你指定的属性:%@",self.propertyName];
             }
-            
         }
     }
     _type = type;
