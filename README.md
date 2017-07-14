@@ -1,3 +1,4 @@
+
 ## ZYPinYinSearch是什么?
 一个筛选库，可以把数组里的内容按照拼音筛选出来。
 
@@ -33,4 +34,4 @@ return @{@"长春":@"changchun",@"重庆":@"chongqing"};//长春默认是"zhangc
 ## 安装
 1、pod 'ZYPinYinSearch'
 2、或者直接把ZYPinYinSearchLib拖入项目即可
-
+![img](https://github.com/bjzhangyang/ZYPinYinSearch/blob/master/2017-06-27%2010_57_40.gif)
