@@ -2,7 +2,7 @@
 //  ZYSearchModel.h
 //  ZYPinYinSearch
 //
-//  Created by tarena on 17/6/13.
+//  Created by soufun on 17/6/13.
 //  Copyright © 2017年 ZY. All rights reserved.
 //
 
